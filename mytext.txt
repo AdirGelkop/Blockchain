@@ -1,0 +1,5 @@
+Your public key === wallet Address, free shareable
+ 040201f1ba71090b76f2fcbb815d3a0be07522ef4971b930f1253ce7ef7a0e7aad2952d1b7159193bbe36507ebd510a9890293a89aafd7f46d66a6fe53d4624171
+
+Your private key, keep it secret
+ 1bb4c4c20b51c0b44ad36ed123cf9a287e07d53b2a568b7ba3260dacd884eca6
