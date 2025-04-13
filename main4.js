@@ -1,15 +1,23 @@
 const{BlockChain, Block, Transaction} = require("./blockChain4.js")
+const EC = require("elliptic").ec
+const ec = new EC("secp256k1") //y^2 = x^3 + 7
 
-let gelkopNet = new BlockChain()
+const myKey = ec.keyFromPrivate('1bb4c4c20b51c0b44ad36ed123cf9a287e07d53b2a568b7ba3260dacd884eca6')
+const myWalletAddress = myKey.getPublic('hex')
 
-gelkopNet.createTransaction(new Transaction('address1', "Bob's Wallet", 100))
-gelkopNet.createTransaction(new Transaction("Bob's Wallet", 'address2', 50))
+const gelkopNet = new BlockChain()
 
-console.log('\nMining Block...... ')
+const tx1 = new Transaction(myWalletAddress, "address2", 100)
+tx1.signTransaction(myKey)
+gelkopNet.addTransaction(tx1)
+gelkopNet.minePendingTransactions(myWalletAddress)
 
-gelkopNet.minePendingTransactions("Bob's Wallet")
+const tx2 = new Transaction(myWalletAddress, "address1", 50)
+tx2.signTransaction(myKey)
+gelkopNet.addTransaction(tx2)
+gelkopNet.minePendingTransactions(myWalletAddress)
 
-console.log('\nBalance of Bob : ', gelkopNet.getBalanceOfAddress("Bob's Wallet"))
+console.log('\nMy Balance : ', gelkopNet.getBalanceOfAddress(myWalletAddress))
 
 //console.log(JSON.stringify(gelkopNet, null, 4))
 
