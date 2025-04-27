@@ -32,12 +32,19 @@ Blockchain/
 ├── blockChain2.js     # Added proof of work mining
 ├── blockChain3.js     # Added transaction system
 ├── blockChain4.js     # Enhanced transaction system
+├── blockChain5task.js # EIP-1559 implementation with advanced features
+├── bloomFilter.js     # Bloom filter implementation
+├── merkleTree.js      # Merkle tree implementation
+├── memPool.js         # Memory pool for pending transactions
+├── lightWallet.js     # Light wallet implementation
 ├── Keygenerator.js    # Elliptic curve key pair generation
 ├── main.js            # Example usage for basic blockchain
 ├── main1.js           # Example with chain validation
 ├── main2.js           # Example with mining
 ├── main3.js           # Example with transactions
 ├── main4.js           # Example with enhanced transactions
+├── main5task.js       # Demo of EIP-1559, Merkle Trees, and Bloom Filters
+├── initialTransactions.json # Initial mempool transactions
 ├── package.json       # Project metadata and dependencies
 └── README.md          # This file
 ```
@@ -84,6 +91,17 @@ This project demonstrates a series of blockchain concepts through progressive im
 - **Key Pairs**: Generates public/private key pairs
 - **Wallet Identity**: Public key serves as wallet address
 
+### 7. EIP-1559 Implementation (blockChain5task.js) 💎
+- **Bloom Filter**: Efficient transaction lookups
+- **Merkle Tree**: Transaction verification for light clients
+- **Light Wallets**: Simplified verification without full blockchain
+- **Fee Structure**:
+  - Base fee (2 coins) that gets burned
+  - Miner priority tip (3 coins) for transaction inclusion
+- **SegWit**: Separation of witness data from transaction data
+- **Memory Pool**: Manages 30 pending transactions in JSON format
+- **Enhanced Statistics**: Tracking of mined and burned coins
+
 ## 🛠️ Technical Details
 
 - **Hashing**: SHA-256 via crypto-js library
@@ -92,6 +110,9 @@ This project demonstrates a series of blockchain concepts through progressive im
 - **Mining**: Adjustable difficulty proof-of-work system
 - **Transaction Processing**: UTXO-inspired balance tracking
 - **Validation**: Multi-level integrity verification
+- **Merkle Trees**: Efficient transaction verification
+- **Bloom Filters**: Probabilistic data structure for fast lookups
+- **EIP-1559**: Implementation of Ethereum's fee market change
 
 ## 🚀 Getting Started
 
@@ -124,6 +145,9 @@ node main3.js
 # Enhanced transactions
 node main4.js
 
+# EIP-1559, Merkle Trees and Bloom Filters
+node main5task.js
+
 # Generate key pair
 node Keygenerator.js
 ```
@@ -134,17 +158,18 @@ node Keygenerator.js
 - **Proof of Work**: Mining requires computational effort, making attacks costly
 - **Cryptographic Identity**: Public/private key pairs for secure transactions
 - **Chain Validation**: Continuous integrity checks maintain security
+- **Merkle Proofs**: Efficient validation without full blockchain
+- **SegWit**: Separation of signature data from transaction data
 
 ## 🔮 Future Improvements
 
 Potential enhancements could include:
-- Merkle tree implementation for efficient transaction verification
 - P2P networking for decentralized operation
 - Smart contract functionality
 - More advanced consensus mechanisms
 - Web interface for blockchain exploration
-- Signature verification for transactions
 - Memory-optimized block storage
+- Advanced light client protocols
 
 ## 📊 Visual Architecture
 
